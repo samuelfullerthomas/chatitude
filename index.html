@@ -1,2 +1,41 @@
-<body>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+  <form class = "signup">
+    New Username: <input type="text" id="newusername"><br>
+    New Password: <input type="text" id="newpassword"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <form class = "signin">
+    Username: <input type="text" id="username"><br>
+    Password: <input type="text" id="password"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <form class = "messageBox">
+    <input type="text" id="message" placeholder="Please enter your message"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <button>Get new messages</button>
+
+  	<div id="app"></div>
+
+    <!-- dependencies -->
+    <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="minivents-master/minivents.js"></script>
+
+    <!-- our scripts -->
+    <script type="text/javascript" src="src/app.js"></script>
+    <script type="text/javascript" src="src/model.js"></script>
+    <script type="text/javascript" src="src/events.js"></script>
+    <script type="text/javascript" src="src/m-v-presenter.js"></script>
+    <!-- <script src="src/m-v-controller.js"></script> -->
+    <script type="text/javascript">
+    	var elem = $('#app')
+    	Presenter.mount(elem)
+    </script> 	
+  </body>
+</html>
