@@ -1,5 +1,6 @@
 (function(){
 	window.sessionApiToken = undefined;
+	window.chts;
 	window.Model = {
 		// View chat messages (without signing in)
 		// Protect the user against XSS attacks
@@ -8,8 +9,9 @@
 			  type: 'GET',
 			  url: 'http://chat.api.mks.io/chats',
 			}).success(function (chats) {
-			  console.log("Got chats:", chats)
-
+				console.log(chats);
+				 window.chts = chats.reverse();
+				 App.pubsub.emit('newMessages:Model')
 			})
 
 		},
@@ -38,6 +40,10 @@
 			  console.log(localStorage.getItem("apiToken"));
 			})
 
+		},
+		//map
+		map: function(callback){
+			return window.chts.map(callback)
 		},
 		// Post a chat message
 		postMessage: function(msg){

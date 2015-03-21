@@ -1,25 +1,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>chatterbox</title>
+    <title>Chatitude</title>
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
+  <h1>Chatitude</h1>
   <form class = "signup">
-    New Username: <input type="text" id="newusername"><br>
-    New Password: <input type="text" id="newpassword"><br>
+    <input type="text" id="newusername" placeholder="New Username"><br>
+    <input type="text" id="newpassword" placeholder="New Password"><br>
     <input type="submit" value="Submit">
   </form>
   <form class = "signin">
-    Username: <input type="text" id="username"><br>
-    Password: <input type="text" id="password"><br>
+    <input type="text" id="username" placeholder="Returning Username"><br>
+    <input type="text" id="password" placeholder="Password"><br>
     <input type="submit" value="Submit">
   </form>
   <form class = "messageBox">
     <input type="text" id="message" placeholder="Please enter your message"><br>
     <input type="submit" value="Submit">
   </form>
-  <button>Get new messages</button>
+  <button class="refresh">Get new messages</button>
 
   	<div id="app"></div>
 
@@ -34,8 +35,36 @@
     <script type="text/javascript" src="src/m-v-presenter.js"></script>
     <!-- <script src="src/m-v-controller.js"></script> -->
     <script type="text/javascript">
-    	var elem = $('#app')
-    	Presenter.mount(elem)
+    	Model.getMessages();
+    	var elem = $('#app');
+    	Presenter.mount(elem);
+    	$('.signup').submit(function(e){
+    		e.preventDefault();
+    		Model.signUp($("#newusername").val(), $("#newpassword").val())
+    		alert($('#newusername').val()+ " has signed up")
+    		$('#newusername').val('');
+    		$('#newpassword').val('');
+    	})
+    	$('.signin').submit(function(e){
+    		e.preventDefault();
+    		Model.signIn($("#username").val(), $("#password").val())
+    		alert($('#username').val()+ " has signed in")
+    		$('#username').val('');
+    		$('#password').val('');
+
+    	})
+    	$('.messageBox').submit(function(e){
+    		e.preventDefault();
+    		Model.postMessage($("#message").val())
+    		Model.getMessages();
+
+    	})
+    	$('.refresh').on('click', function(e){
+    		console.log('refresh');
+    		e.preventDefault();
+    		Model.getMessages();
+    	})
+    	window.setTimeout(Model.getMessages.bind(this), 10000);
     </script> 	
   </body>
 </html>
