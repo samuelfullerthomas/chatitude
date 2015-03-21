@@ -20,11 +20,14 @@
 	    <input type="submit" value="Submit">
 	  </form>
 	</div>
-  <form class = "messageBox">
-    <input type="text" id="message" placeholder="Please enter your message"><br>
-    <input type="submit" value="Submit">
-  </form>
-  <button class="refresh">Get new messages</button>
+	<div class="rowTwo">
+	  <form class = "messageBox">
+	    <input type="text" id="message" placeholder="Please enter your message"><br>
+	    <input type="submit" value="Submit">
+	    <button class="refresh">Get new messages</button>
+	  </form>
+	</div>
+
   	<p>
   	<div id="app"></div>
 
@@ -35,12 +38,13 @@
     <script type="text/javascript" src="src/app.js"></script>
     <script type="text/javascript" src="src/model.js"></script>
     <script type="text/javascript" src="src/events.js"></script>
-    <script type="text/javascript" src="src/m-v-presenter.js"></script>
-    <!-- <script src="src/m-v-controller.js"></script> -->
+    <!-- <script type="text/javascript" src="src/m-v-presenter.js"></script> -->
+    <script src="src/m-v-controller.js"></script>
     <script type="text/javascript">
     	Model.getMessages();
     	var elem = $('#app');
-    	Presenter.mount(elem);
+    	//Presenter.mount(elem);
+    	MessageStuff.mount(elem);
     	$('.signup').submit(function(e){
     		e.preventDefault();
     		Model.signUp($("#newusername").val(), $("#newpassword").val())
@@ -60,6 +64,8 @@
     		e.preventDefault();
     		Model.postMessage($("#message").val())
     		Model.getMessages();
+    		alert('Message submitted')
+    		$('#message').val('')
 
     	})
     	$('.refresh').on('click', function(e){

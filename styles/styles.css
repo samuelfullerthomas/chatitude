@@ -1,27 +1,59 @@
 .signup{
+	display: inline-block;
 }
 
 .signin{
-
+	display: inline-block;
 }
 
-.signup{
-	text-align: center
-}
+
 
 h1 {
-	text-align: center
+	margin-left: 25%
 }
 
 .messagebox {
-	text-align: center;	
-}
-
-#message {
-	width: 400px;
+	display: inline-block;
 }
 
 .logins {
+	margin-left: 25%;
+	margin-right:25%;
 	width: 50%;
-	text-align: center
+	padding-top: 20px;
+	padding-bottom:20px;
 }
+
+.rowTwo {
+	margin-left: 25%;
+	margin-right:25%;
+	width: 80%;
+	padding-bottom:20px;
+}
+
+#message {
+	width: 310px;
+}
+
+.messages {
+
+	margin-left: 25%	
+	
+}
+
+.refresh {
+
+}
+
+.app {
+	width: 300px;
+}
+.user {
+	font-weight: bold;
+
+}
+/*.msg {
+	margin-left: 25%;
+	margin-right:25%;
+	width: 50%;
+}*/

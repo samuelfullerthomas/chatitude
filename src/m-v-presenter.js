@@ -5,14 +5,6 @@
 
 	Presenter.Presenter = function(element) {
 		var $view = $(element)
-
-		// Provide a view chat messages (without signing in)
-		// Message view helper
-		// button to Sign up for an account
-		// button to Sign in
-		// refresh messages button
-		// button to send a chat message
-
 		this.render = function(){
 			console.log('working render')
 			$view.empty().append(
@@ -28,14 +20,23 @@
 		return $('<div class ="people">')
 	}
 	function messageView (msg){
-		return $('<div class = "message">').append(
-			$('<p class="msg">').append("Username: ", msg.user),
-			$('<p class="msg">').append("Message: ", msg.message)
+		var sanitizedMsg = sanitize(msg.message)
+		return $('<div class = "messages">').append(
+			$('<p class="user">').append(msg.user),
+			$('<p class="msg">').append(sanitizedMsg) //sanitize input
 		)
 	}	
 	//mounting function
 	Presenter.mount = function(element){
 		var presenter = new Presenter.Presenter(element);
+	}
+	function sanitize (i){
+		if (i.indexOf('<') !== -1){
+			return 'This message contained script';
+		}
+		else{
+			return i;
+		}
 	}
 
 
