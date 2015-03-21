@@ -29,8 +29,8 @@
 	}
 	function messageView (msg){
 		return $('<div class = "message">').append(
-			$('<p class=' + msg.id +'>').append("Username: ", msg.user),
-			$('<p class=' + msg.id +'>').append("Message: ", msg.message)
+			$('<p class="msg">').append("Username: ", msg.user),
+			$('<p class="msg">').append("Message: ", msg.message)
 		)
 	}	
 	//mounting function

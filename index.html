@@ -1,33 +1,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Chatitude</title>
+    <title>Chatitude!</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="styles/styles.css">
+
   </head>
   <body>
-  <h1>Chatitude</h1>
-  <form class = "signup">
-    <input type="text" id="newusername" placeholder="New Username"><br>
-    <input type="text" id="newpassword" placeholder="New Password"><br>
-    <input type="submit" value="Submit">
-  </form>
-  <form class = "signin">
-    <input type="text" id="username" placeholder="Returning Username"><br>
-    <input type="text" id="password" placeholder="Password"><br>
-    <input type="submit" value="Submit">
-  </form>
+  <h1>Chatitude!</h1>
+  	<div class = "logins">
+	  <form class = "signup">
+	    <input type="text" id="newusername" placeholder="New Username"><br>
+	    <input type="text" id="newpassword" placeholder="New Password"><br>
+	    <input type="submit" value="Submit">
+	  </form>
+	  <form class = "signin">
+	    <input type="text" id="username" placeholder="Returning Username"><br>
+	    <input type="text" id="password" placeholder="Password"><br>
+	    <input type="submit" value="Submit">
+	  </form>
+	</div>
   <form class = "messageBox">
     <input type="text" id="message" placeholder="Please enter your message"><br>
     <input type="submit" value="Submit">
   </form>
   <button class="refresh">Get new messages</button>
-
+  	<p>
   	<div id="app"></div>
 
     <!-- dependencies -->
     <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="minivents-master/minivents.js"></script>
-
     <!-- our scripts -->
     <script type="text/javascript" src="src/app.js"></script>
     <script type="text/javascript" src="src/model.js"></script>
